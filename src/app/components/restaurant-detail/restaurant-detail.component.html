@@ -1,0 +1,30 @@
+<div class="row" *ngIf="resdetails" style="margin:20px 0px;">
+    <img src="assets/images/{{resdetails.id}}.jpeg" style="height:112px;width: 112px" alt="{{resdetails.name}}">
+
+    <div class="col-m" style="margin: 0 10px;">
+        <h5>{{resdetails.name}}</h5>
+        <div>{{resdetails.location}}</div>
+    </div>
+</div>
+
+<div class="row res-full-menu" *ngIf="mainMenu" >
+    <div class="col-m">
+        <ul class="nav flex-column nav-pills border-right menu">
+            <li class="nav-item" *ngFor="let m of mainMenu;" [ngClass]="{ active: selectedItem==m }"
+                (click)="menuitemclick(m)">
+                <a class="nav-link">{{m}}</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="col-m ">
+        <div class="item-container" *ngFor="let m of fullMenu;">
+            <div >
+                 <span style="font-weight:500">{{m.dish}}</span><br/>
+                 <span style="margin-top:3px;font-size:12px;">&#8377;{{m.price}}</span>
+            </div>
+            
+            <button class="btn btn-link">Add to Cart</button>
+        </div>
+    </div>
+</div>
